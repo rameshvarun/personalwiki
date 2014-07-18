@@ -1,3 +1,4 @@
 Jinja2==2.7.3
 Markdown==2.4.1
 MarkupSafe==0.23
+pygments==1.6

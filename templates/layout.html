@@ -17,13 +17,38 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.4.4/select2.css" rel="stylesheet"/>
   <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.4.4/select2.js"></script>
 
+  <!-- Syntax Higlighting Colors -->
+  <link href="monokai.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link href="style.css" rel="stylesheet">
+
   <script src="search.js"></script>
 </head>
 
 <body>
-  <input type='hidden' id="search"></select>
+
+
+
+
+  <div class="container">
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li><input type='hidden' id="search"></select></li>
+      </ul>
+      <a href="/"><h3 class="text-muted">The Dungeon</h3></a>
+    </div>
+    <hr>
+
   {% block content %}
   {% endblock %}
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <p class="text-muted">Random thoughts organized into a Wiki. Basically an interlinked, shareable, Evernote notebook.</p>
+    </div>
+  </div>
 </body>
 
 </html>

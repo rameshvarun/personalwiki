@@ -1,2 +1,3 @@
-Output/
+output/
+deploy.sh
 *.pyc

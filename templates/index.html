@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="row">
+    {% for article in articles %}
+      <div class="col-lg-6">
+        <h4><a href="{{article.id}}.html">{{article.title}}</a></h4>
+        <p>{{article.description}}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
