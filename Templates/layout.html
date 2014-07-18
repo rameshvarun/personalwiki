@@ -1,0 +1,29 @@
+<html>
+<head>
+
+  <!-- jQuery -->
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <!-- Bootstrap -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <!-- Lunr.js -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/augment.js/1.0.0/augment.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.5.4/lunr.min.js"></script>
+
+  <!-- Select2 -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/select2/3.4.4/select2.css" rel="stylesheet"/>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.4.4/select2.js"></script>
+
+  <script src="search.js"></script>
+</head>
+
+<body>
+  <input type='hidden' id="search"></select>
+  {% block content %}
+  {% endblock %}
+</body>
+
+</html>
