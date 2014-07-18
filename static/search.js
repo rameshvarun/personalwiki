@@ -39,4 +39,22 @@ $(function() {
   $("#search").on("change", function(e) {
     window.location = e.val + ".html"
   });
+
+  // Random titles
+  var titles = ["The Dungeon", "The Spawning Pool", "The Nursery"];
+  $("#wiki-title").html(titles[Math.floor(Math.random()*titles.length)]);
+
+  // Video fitting
+  $("div").fitVids();
+
+  // Selected Header
+  function markHeader() {
+    if(window.location.hash.length > 0) {
+      $("h1, h2, h3, h4, h5, h6").removeClass("mark");
+      $(window.location.hash).addClass("mark");
+    }
+  }
+
+  window.onhashchange = markHeader;
+  markHeader();
 });
