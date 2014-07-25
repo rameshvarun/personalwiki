@@ -6,4 +6,13 @@
  </div>
 
  <script src="page.js"></script>
+
+ {% if tags %}
+   <hr>
+   Tags:
+   {% for tag in tags -%}
+     {% if tag != tags[0] -%}, {%- endif %}
+     <a onclick="$('#search').select2('search', '{{tag}}');">{{ tag }}</a>
+   {%- endfor %}
+ {% endif %}
 {% endblock %}

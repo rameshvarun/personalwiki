@@ -39,11 +39,13 @@ class LinkPattern(markdown.inlinepatterns.Pattern):
       return a
 
 if __name__ == "__main__":
+  # Command-line arguments
   parser = argparse.ArgumentParser(description="Generate a static site that can be uploaded to the server.")
   parser.add_argument("-i", "--inputdir", help="Directory from which to read input files.", type=str, required=True)
   parser.add_argument("-o", "--outputdir", help="Directory to place generated site.", type=str, required=True)
   args = parser.parse_args()
 
+  # Load templates (One for a page, and one for the index)
   template_env = jinja2.Environment(loader = jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
   page_template = template_env.get_template('page.html')
   index_template = template_env.get_template('index.html')
@@ -74,7 +76,8 @@ if __name__ == "__main__":
     out_filename = os.path.join( args.outputdir, os.path.splitext(filename)[0] + ".html" )
     out_file = open(out_filename, "w")
     out_file.write(page_template.render(
-      markdown = output
+      markdown = output,
+      tags = articles[id]['tags']
     ))
     out_file.close()
 
