@@ -7,7 +7,7 @@ window.search_index = lunr(function() {
 })
 
 window.article_index = {}
-$.getJSON("index.json", function(data) {
+$.getJSON(path_to_root + "index.json", function(data) {
   window.article_index = data
   for(name in data) {
     window.search_index.add({
@@ -37,7 +37,7 @@ $(function() {
   })
 
   $("#search").on("change", function(e) {
-    window.location = e.val + ".html"
+    window.location = path_to_root + e.val + ".html"
   });
 
   // Random titles
