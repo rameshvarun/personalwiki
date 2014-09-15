@@ -5,6 +5,7 @@ import jinja2
 import json
 import argparse
 import errno
+import shutil
 
 from extensions import LinkExtension
 
@@ -27,16 +28,20 @@ if __name__ == "__main__":
   articles = {}
 
   files = []
-  def find_markdown_files(dir):
+  assets = []
+  def scan_dir(dir):
     for path in os.listdir(dir):
       file_path = os.path.join(dir, path)
-      if os.path.isfile(file_path) and path[len(path) - 3:] == ".md":
-        files.append(file_path)
+      if os.path.isfile(file_path):
+        if path[len(path) - 3:] == ".md":
+          files.append(file_path)
+        else:
+          assets.append(file_path)
       elif os.path.isdir(file_path):
-        find_markdown_files(file_path)
+        scan_dir(file_path)
 
 
-  find_markdown_files(args.inputdir)
+  scan_dir(args.inputdir)
 
   for filename in files:
     relpath = os.path.relpath(filename, args.inputdir)
@@ -69,6 +74,12 @@ if __name__ == "__main__":
       path_to_root = args.root
     ))
     out_file.close()
+
+  # Copy over assets
+  for asset in assets:
+    relpath = os.path.relpath(asset, args.inputdir)
+    out_filename = os.path.join( args.outputdir, relpath)
+    shutil.copyfile(asset, out_filename)
 
   index_file = open( os.path.join(args.outputdir,  "index.json") , "w")
   index_file.write(json.dumps(articles, indent=4))
