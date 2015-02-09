@@ -87,6 +87,7 @@ if __name__ == "__main__":
 
   index_html = open( os.path.join(args.outputdir,  "index.html") , "w")
   index_html.write(index_template.render(
-    articles = articles.values()
+    articles = articles.values(),
+    path_to_root = args.root
   ))
   index_html.close()
