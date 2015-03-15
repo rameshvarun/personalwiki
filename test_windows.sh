@@ -14,7 +14,7 @@ trap "kill 0" EXIT
 
 while true; do
   echo "Building site..."
-  python generate.py --i "C:\Users\Varun Ramesh\Dropbox\Public\Wiki" --o output/ -r /
+  python generate.py --i "C:\Users\Varun Ramesh\Dropbox\Public\Wiki" --outputdir "output\\" --root 'http://localhost:3000/'
   cp static/* output/
 
   echo "Waiting for changes..."

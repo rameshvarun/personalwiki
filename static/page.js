@@ -20,4 +20,7 @@ $(function() {
   }, function() {
     $("#directlink").remove();
   });
+
+  // LazyYT
+  $('.lazyYT').lazyYT();
 })
