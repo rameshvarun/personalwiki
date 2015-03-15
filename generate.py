@@ -46,7 +46,7 @@ if __name__ == "__main__":
   for filename in files:
     relpath = os.path.relpath(filename, args.inputdir)
 
-    id = os.path.splitext(relpath)[0]
+    id = os.path.splitext(relpath)[0].replace('\\', '/')
     input = open(os.path.join(args.inputdir, relpath)).read()
     output = md.convert(input)
 
