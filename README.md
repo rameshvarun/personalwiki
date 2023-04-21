@@ -1,6 +1,6 @@
 _A Basic Wiki system for personal use._
 
-![Imgur](http://i.imgur.com/5L9rSHG.png)
+![Imgur](./screenshot.png)
 
 # Goals
   - Let me create reasonably presentable documents simply by creating files in my Dropbox.
